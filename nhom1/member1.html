@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile của Quyên</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,800&family=Lexend+Deca:wght@600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #fff7d6;
+      color: #210100;
+      line-height: 1.6;
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    nav {
+      background-color: #FFE8A1;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 50px;
+      border-bottom: 3px solid #FFB366;
+      box-shadow: 0 4px 20px rgba(255, 179, 102, 0.15);
+    }
+       
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: #332C23;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-right-container {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 15px;
+    }
+
+    .nav-links a {
+      color: #332C23;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      padding: 8px 18px;
+      border-radius: 20px;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: #332C23;
+      background-color: #FFD54F;
+      box-shadow: 0 2px 8px rgba(255, 213, 79, 0.4);
+    }
+
+    .custom-logo-area {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: 2px dashed #FFB366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff;
+      overflow: hidden;
+    }
+
+    .custom-logo-area img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .wrapper {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .sky-section {
+      width: 100%;
+      position: relative;
+      background-color: #71bbfd;
+      background-image: url('bgbq.png');
+      background-size: cover;
+      background-position: center;
+      padding: 50px 20px 90px 20px;
+      min-height: 620px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-bottom: 2px solid #afcad8;
+    }
+
+    .sky-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: #800020;
+      text-align: center;
+      margin-bottom: 45px;
+      letter-spacing: 0.5px;
+      text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.8), 
+                   0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .profile-combined-box {
+      background-color: #fef9c3;
+      border-radius: 32px;
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      width: 100%;
+      max-width: 880px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      position: relative;
+      z-index: 2;
+      margin-top: 10px;
+    }
+
+    .avatar-wrapper {
+      width: 320px;
+      height: 270px;
+      border-radius: 20px;
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .info-details {
+      flex-grow: 1;
+      color: #210100;
+      font-size: 1.2rem;
+      line-height: 1.55;
+      font-weight: 600;
+    }
+
+    .info-item {
+      margin-bottom: 10px;
+    }
+
+    .quote-box {
+      margin-top: 14px;
+      text-align: center;
+      font-size: 1.2rem;
+    }
+
+    .flying-cow {
+      position: absolute;
+      right: 25px;
+      bottom: 10px;
+      width: 210px;
+      z-index: 3;
+      mix-blend-mode: multiply;
+    }
+
+    .yellow-section {
+      width: 100%;
+      background-color: #fff7d6;
+      padding: 50px 20px 60px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.65rem;
+      font-weight: 800;
+      color: #800020;
+      width: 100%;
+      max-width: 900px;
+      text-align: left;
+      padding-left: 20px;
+      margin-bottom: 70px;
+      text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.6);
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 45px;
+      width: 100%;
+      max-width: 900px;
+      align-items: start;
+    }
+
+    .card {
+      border-radius: 24px;
+      padding: 28px 20px;
+      color: #210100;
+      height: 400px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+    }
+
+    .card-1 {
+      background-color: #92befe;
+      margin-top: 0;
+    }
+
+    .card-2 {
+      background-color: #c69dfd;
+      margin-top: 25px;
+    }
+
+    .card-3 {
+      background-color: #f882b4;
+      margin-top: 0;
+    }
+
+    .card-title {
+      font-family: 'Lexend Deca', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    .card-text {
+      font-size: 1.2rem;
+      line-height: 1.45;
+      font-weight: 500;
+    }
+
+    .card-list {
+      list-style: none;
+      margin-top: 5px;
+    }
+
+    .card-list li {
+      margin-bottom: 4px;
+    }
+
+    .footer-section {
+      margin-top: 170px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-title {
+      font-family: 'Lexend Deca', sans-serif;
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: #470314;
+      text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.6);
+    }
+
+    .cat-img {
+      width: 170px;
+      mix-blend-mode: multiply;
+    }
+
+    @media (max-width: 850px) {
+      .profile-combined-box {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .avatar-wrapper {
+        width: 100%;
+        max-width: 280px;
+        height: 220px;
+      }
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+      .card-2 {
+        margin-top: 0;
+      }
+      .section-title {
+        padding-left: 0;
+        text-align: center;
+      }
+      .flying-cow {
+        width: 140px;
+        right: 10px;
+        bottom: 10px;
+      }
+      .sky-title, .section-title, .footer-title {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+      <div class="logo">Cozy House 🏡</div>
+      <div class="nav-right-container">
+          <ul class="nav-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="baitap.html">Bài Tập Nhóm</a></li>
+          </ul>
+          <div class="custom-logo-area" title="Logo nhóm">
+              <img src="logo.png" alt="Logo">
+          </div>
+      </div>
+  </nav>
+
+  <div class="wrapper">
+    
+    <section class="sky-section">
+      <h1 class="sky-title">Welcome to Profile của Quyên</h1>
+      
+      <div class="profile-combined-box">
+        <div class="avatar-wrapper">
+          <img class="avatar-img" src="bq.png" alt="Bảo Quyên">
+        </div>
+
+        <div class="info-details">
+          <div class="info-item">Tên: Hồ Ngọc Bảo Quyên</div>
+          <div class="info-item">Lớp: 12 TT (K34)</div>
+          <div class="info-item">Ngày sinh: 06/02/2009</div>
+          <div class="info-item">Châm ngôn sống:</div>
+          <div class="quote-box">
+            <p>“Tiền không mua được hạnh phúc ư?</p>
+            <p>Đó là vì bạn chưa có đủ nhiều tiền thôi!”</p>
+          </div>
+        </div>
+      </div>
+
+      <img class="flying-cow" src="bo.png" alt="Bò bay">
+    </section>
+
+    <section class="yellow-section">
+      <h2 class="section-title">Những thú vui ngoài giờ của tớ&gt;&gt;</h2>
+
+      <div class="cards-grid">
+        
+        <div class="card card-1">
+          <h3 class="card-title">CHƠI GAME</h3>
+          <div class="card-text">
+            <p>Là học sinh ai chả mê chơi game!</p>
+            <p>List game mình hay chơi:</p>
+            <ul class="card-list">
+              <li>+ Sky children of the light</li>
+              <li>+ Tsuki Odyssey</li>
+              <li>+ Identity V</li>
+              <li>+ ...</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card card-2">
+          <h3 class="card-title">ĐỌC TIỂU THUYẾT</h3>
+          <div class="card-text">
+            <p>Tui là một tín đồ của tiểu thuyết kinh dị, trinh thám đó kaka!</p>
+            <p>List tiểu thuyết mình thích:</p>
+            <ul class="card-list">
+              <li>+ Án mạng tháp thủy tinh</li>
+              <li>+ Năm kẻ sống sót</li>
+              <li>+ Lớp có tang sự không cần điểm danh</li>
+              <li>+ ...</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card card-3">
+          <h3 class="card-title">TRỒNG CÂY</h3>
+          <div class="card-text">
+            <p>Chăm sóc cây trồng giúp chúng ta relax và xả stress rất hiệu quả đó!</p>
+            <p>Một số loài cây mình từng trồng:</p>
+            <ul class="card-list">
+              <li>+ Đậu bắp</li>
+              <li>+ Cây đô la</li>
+              <li>+ Khoai tây</li>
+              <li>+ ...</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-section">
+        <h2 class="footer-title">Hết rồi! Chúc cả nhà phát tài phát lộc nha&lt;3</h2>
+        <img class="cat-img" src="meo.png" alt="Mèo phát tài">
+      </div>
+
+    </section>
+
+  </div>
+
+</body>
+</html>

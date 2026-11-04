@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sunshine-yellow: #FFD54F;
+            --soft-butter: #FFE8A1;
+            --warm-cream: #FFF7E1;
+            --peach-glow: #FFB366;
+            --sunlit-green: #A3B454;
+            --text-main: #332C23;
+            --text-sub: #635848;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--warm-cream);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: var(--soft-butter);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 50px;
+            border-bottom: 3px solid var(--peach-glow);
+            box-shadow: 0 4px 20px rgba(255, 179, 102, 0.15);
+        }
+       
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-right-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            padding: 8px 18px;
+            border-radius: 20px;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--text-main);
+            background-color: var(--sunshine-yellow);
+            box-shadow: 0 2px 8px rgba(255, 213, 79, 0.4);
+        }
+
+        .custom-logo-area {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px dashed var(--peach-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        .custom-logo-area img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-about-section {
+            width: 100%;
+            background: linear-gradient(rgba(255, 247, 225, 0.45), rgba(255, 232, 161, 0.55)), 
+                        url('bg.png') center/cover no-repeat;
+            padding: 40px 50px 50px 50px;
+            border-bottom: 3px solid var(--peach-glow);
+            margin-bottom: 50px;
+        }
+
+        .hero-about-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .hero-about-container h1 {
+            font-size: 2.8rem;
+            color: #320d04;
+            font-weight: 800;
+            text-align: left;
+            text-shadow: 0px 2px 8px rgba(255, 255, 255, 0.8);
+            letter-spacing: -0.5px;
+        }
+
+        .group-intro-card {
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid #fdd370;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(8px);
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        .group-photo-card {
+            width: 100%;
+            height: 320px;
+            overflow: hidden;
+        }
+
+        .group-photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .group-info-box {
+            width: 100%;
+            padding: 25px 30px;
+            text-align: center;
+            background-color: transparent; 
+        }
+
+        .group-info-box p {
+            color: #320303;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            font-weight: 600;
+        }
+
+        .members-section-container {
+            max-width: 1100px;
+            margin: 0 auto 60px auto;
+            padding: 0 20px;
+        }
+
+        .members-vertical-section h2 {
+            text-align: center;
+            font-size: 2.1rem;
+            color: #320303;
+            font-weight: 800;
+            margin-bottom: 35px;
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .member-card {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 25px 20px;
+            border: 2px solid #ED8990;
+            box-shadow: 0 6px 20px rgba(255, 179, 102, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 12px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .member-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(255, 179, 102, 0.25);
+            border-color: #8E588A;
+        }
+
+        .member-avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fea88ebe;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .member-card:hover .member-avatar {
+            transform: scale(1.05);
+        }
+
+        .member-name {
+            font-size: 1.2rem;
+            color: #1B2316;
+            font-weight: 800;
+        }
+
+        .member-nickname {
+            font-size: 0.9rem;
+            color: #635848;
+            font-weight: 600;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Cozy House 🏡</div>
+        <div class="nav-right-container">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="baitap.html">Bài Tập Nhóm</a></li>
+            </ul>
+            <div class="custom-logo-area" title="Logo nhóm">
+                <img src="logo.png" alt="Logo">
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-about-section">
+        <div class="hero-about-container">
+            <h1>Về chúng tớ</h1>
+
+            <div class="group-intro-card">
+                <div class="group-photo-card">
+                    <img src="nhom.png" alt="Ảnh chụp chung nhóm Cozy House">
+                </div>
+
+                <div class="group-info-box">
+                    <p>
+                        Chào mừng bạn đến với góc nhỏ của Cozy House (Nhóm 1)! 
+                        Chúng tớ tự hào là CBT-ers, những học sinh siêu có "trách nhiệm", luôn sẻ chia và hỗ trợ lẫn nhau trong học tập (đặc biệt hay hóng drama). 
+                        <br>Nơi đây lưu giữ những "bài tập" đáng nhớ và các sản phẩm nhóm của tụi mình ♥
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="members-section-container">
+        <section class="members-vertical-section">
+            <h2>Xem thêm thông tin tại đây!</h2>
+            <div class="members-grid">
+
+                <a href="member1.html" class="member-card">
+                    <img src="bq.png" alt="Bảo Quyên" class="member-avatar">
+                    <div class="member-name">Bảo Quyên</div>
+                    <div class="member-nickname">Biệt danh: Con bò biết bay</div>
+                </a>
+
+                <a href="member2.html" class="member-card">
+                    <img src="at.png" alt="An Thư" class="member-avatar">
+                    <div class="member-name">An Thư</div>
+                    <div class="member-nickname">Biệt danh: Cô nàng khờ khạo</div>
+                </a>
+
+                <a href="member3.html" class="member-card">
+                    <img src="tt.png" alt="Thái Tuấn" class="member-avatar">
+                    <div class="member-name">Thái Tuấn</div>
+                    <div class="member-nickname">Biệt danh: Trai Việt gốc Mỹ</div>
+                </a>
+
+                <a href="member4.html" class="member-card">
+                    <img src="pt.png" alt="Phương Thảo" class="member-avatar">
+                    <div class="member-name">Phương Thảo</div>
+                    <div class="member-nickname">Biệt danh: Cô bé nóng hổi</div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

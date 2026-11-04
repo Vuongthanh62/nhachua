@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cozy House - About Us</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #fff2d0; /* Vanilla Milk */
+            color: #2b3a4a;
+        }
+
+        /* Thanh menu */
+        nav {
+            background-color: #81a9ee; /* Dreamy Blue */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            border-bottom: 3px solid #ffdb83;
+            box-shadow: 0 4px 15px rgba(62, 102, 143, 0.2);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(43, 58, 74, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #2b3a4a;
+            background-color: #ffdb83; /* Butter Honey */
+        }
+
+        /* Nội dung trang About Us */
+        .about-container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .about-container h1 {
+            color: #3e668f; /* Xanh đậm chủ đạo */
+            margin-bottom: 40px;
+            text-align: center;
+            font-size: 2.2rem;
+        }
+
+        /* Lưới chứa thông tin 4 thành viên */
+        .member-details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+
+        .detail-card {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(129, 169, 238, 0.2);
+            border: 2px solid #aab4e7; /* Silky Lilac */
+            border-left: 6px solid #81a9ee; /* Dreamy Blue điểm nhấn cạnh trái */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(129, 169, 238, 0.35);
+            border-color: #ffdb83;
+        }
+
+        .detail-card h3 {
+            color: #3e668f;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #e0c26d;
+            padding-bottom: 8px;
+        }
+
+        .detail-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #2b3a4a;
+            margin-bottom: 8px;
+        }
+
+        .detail-card span {
+            color: #3e668f;
+            font-weight: 700;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: #81a9ee;
+            color: #ffffff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-top: 3px solid #ffdb83;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Thanh menu navigation -->
+    <nav>
+        <div class="logo">Cozy House 🏡</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About Us</a></li>
+            <li><a href="baitap.html">Bài Tập Nhóm</a></li>
+        </ul>
+    </nav>
+
+    <!-- Thông tin chi tiết các thành viên -->
+    <div class="about-container">
+        <h1>Hồ Sơ Thành Viên Cozy House</h1>
+                
+        <div class="member-details-grid">                        
+            <!-- Thành viên 1: Bảo Quyên -->
+<div class="detail-card">
+    <a href="member1.html" style="text-decoration: none;">
+        <h3>Hồ Ngọc Bảo Quyên</h3>
+    </a>
+    <p><span>Lớp:</span> 12 Toán Tin</p>
+    <p><span>Thích:</span> Đọc truyện trinh thám, ăn và ngủ</p>
+    <p><span>Ghét:</span> Trời nóng</p>
+    
+    <!-- Thêm dòng này để có nút bấm chuyển sang trang cá nhân -->
+    <a href="member1.html" style="display: inline-block; margin-top: 10px; color: #3e668f; font-weight: 700; text-decoration: none;">
+        Xem trang cá nhân &rarr;
+    </a>
+</div>
+
+            <!-- Thành viên 2: An Thư -->
+            <div class="detail-card">
+                <h3>Nguyễn Ngọc An Thư</h3>
+                <p><span>Lớp:</span> 12 Toán Tin</p>
+                <p><span>Thích:</span> Đá cầu</p>
+                <p><span>Ghét:</span> Thằn lằn</p>
+            </div>
+
+            <!-- Thành viên 3: Thái Tuấn -->
+            <div class="detail-card">
+                <h3>Nguyễn Thái Tuấn</h3>
+                <p><span>Lớp:</span> 12 Toán Tin</p>
+                <p><span>Thích:</span> Ăn dooki</p>
+                <p><span>Ghét:</span> Ăn gà rán</p>
+            </div>
+
+            <!-- Thành viên 4: Phương Thảo -->
+            <div class="detail-card">
+                <h3>Nguyễn Ngọc Phương Thảo</h3>
+                <p><span>Lớp:</span> 12 Toán Tin</p>
+                <p><span>Thích:</span> Ăn gà</p>
+                <p><span>Ghét:</span> Thằn lằn</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Nhóm Cozy House. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

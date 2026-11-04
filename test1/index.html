@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cozy House - Trang Chủ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            /* Nền chính Vanilla Milk nhẹ nhàng, dịu mắt */
+            background-color: #fff2d0; 
+            color: #2b3a4a;
+        }
+
+        /* Thanh điều hướng Navbar - Tông Dreamy Blue tươi mát */
+        nav {
+            background-color: #81a9ee;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            border-bottom: 3px solid #ffdb83; /* Viền vàng bơ điểm nhấn */
+            box-shadow: 0 4px 15px rgba(62, 102, 143, 0.2);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(43, 58, 74, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 5px 12px;
+            border-radius: 15px;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #2b3a4a;
+            background-color: #ffdb83; /* Nổi bật menu với vàng bơ */
+        }
+
+        /* Section 1: Header / Banner với Ảnh nền mới */
+        .hero {
+            position: relative;
+            height: 75vh;
+            /* Phủ lớp gradient mờ chuyển từ tím nhạt sang vàng nhẹ lên ảnh background */
+            background: linear-gradient(rgba(170, 180, 231, 0.45), rgba(255, 219, 131, 0.35)), 
+                        url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCt1uCTxvW8mXKGUl4l4b-le7WgjaPn-60SFHerpYihvvfC6GJkkrawCe5Yz8CrRSJck5I7bCl_NjcQN1f69yjxJEx1mvUP9psTDqIvB46aCK85rteqn8pOnXBKNsCxWDyC68bh-pBomU3/s1600/hinh-nen-phong-canh-dep+%252813%2529.jpg') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            border-bottom: 3px solid #aab4e7;
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            color: #ffffff;
+            text-shadow: 0px 4px 15px rgba(43, 58, 74, 0.7);
+            margin-bottom: 18px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+        }
+
+        .hero p {
+            font-size: 1.35rem;
+            color: #2b3a4a;
+            font-weight: 600;
+            background: rgba(255, 242, 208, 0.9); /* Khung nền Vanilla Milk mờ nhẹ */
+            padding: 10px 28px;
+            border-radius: 25px;
+            border: 2px solid #ffdb83;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        /* Section 2: Trích dẫn */
+        .quote-section {
+            position: relative;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, rgba(170, 180, 231, 0.25), rgba(255, 219, 131, 0.3));
+            text-align: center;
+            border-top: 2px solid #aab4e7;
+            border-bottom: 2px solid #aab4e7;
+        }
+
+        .quote-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .quote-card {
+            margin: 25px 0;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.85);
+            border-left: 6px solid #81a9ee; /* Viền xanh mộng mơ */
+            border-radius: 12px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(170, 180, 231, 0.3);
+        }
+
+        .quote-card p {
+            font-size: 1.25rem;
+            font-style: italic;
+            color: #2b3a4a;
+            line-height: 1.6;
+            font-weight: 600;
+        }
+
+        /* Section 3: Thành viên nhóm */
+        .members-section {
+            padding: 70px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .members-section h2 {
+            font-size: 2.3rem;
+            margin-bottom: 40px;
+            color: #3e668f;
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .member-card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 30px 15px;
+            border: 2px solid #aab4e7; /* Viền Silky Lilac nhẹ nhàng */
+            box-shadow: 0 6px 20px rgba(129, 169, 238, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+        }
+
+        .member-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(129, 169, 238, 0.35);
+            border-color: #ffdb83; /* Đổi màu viền sang Butter Honey khi hover */
+        }
+
+        .member-card img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #81a9ee;
+            margin-bottom: 15px;
+        }
+
+        .member-card h3 {
+            font-size: 1.2rem;
+            color: #3e668f;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .member-card p {
+            font-size: 0.95rem;
+            color: #6b7c93;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: #81a9ee;
+            color: #ffffff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-top: 3px solid #ffdb83;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Thanh chuyển trang (Navbar) -->
+    <nav>
+        <div class="logo">Cozy House 🏡</div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="baitap.html">Bài Tập Nhóm</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header: Ảnh nền & Tiêu đề -->
+    <header class="hero">
+        <h1>Welcome to Cozy House</h1>
+        <p>Nơi lưu giữ những khoảnh khắc và bài học đáng nhớ</p>
+    </header>
+
+    <!-- Section: Trích dẫn trên nền ảnh -->
+    <section class="quote-section">
+        <div class="quote-container">
+            <div class="quote-card">
+                <p>“Tâm bình thế giới bình, tâm an vạn sự an.”</p>
+            </div>
+            <div class="quote-card">
+                <p>“Cùng nhau học tập, cùng nhau tiến bộ trên con đường tri thức.”</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: 4 Thành viên -->
+    <section class="members-section">
+        <h2>Our members</h2>
+        <div class="members-grid">
+            
+            <!-- Thành viên 1 -->
+<div class="member-card">
+    <a href="member1.html">
+        <img src="member1.jfif" alt="Bảo Quyên">
+    </a>
+    <a href="member1.html" style="text-decoration: none;">
+        <h3>Bảo Quyên</h3>
+    </a>
+    <p>Thành viên</p>
+</div>
+
+            <!-- Thành viên 2 -->
+            <div class="member-card">
+                <img src="member2.jpg" alt="An Thư">
+                <h3>An Thư</h3>
+                <p>Thành viên</p>
+            </div>
+
+            <!-- Thành viên 3 -->
+            <div class="member-card">
+                <img src="member3.webp" alt="Thái Tuấn">
+                <h3>Thái Tuấn</h3>
+                <p>Thành viên</p>
+            </div>
+
+            <!-- Thành viên 4 -->
+            <div class="member-card">
+                <img src="member4.jpg" alt="Phương Thảo">
+                <h3>Phương Thảo</h3>
+                <p>Thành viên</p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Nhóm Cozy House. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

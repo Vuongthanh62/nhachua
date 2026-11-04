@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyễn Thái Tuấn - Cozy House</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sunshine-yellow: #FFD54F;
+            --soft-butter: #FFE8A1;
+            --warm-cream: #FFF7E1;
+            --peach-glow: #FFB366;
+            --sunlit-green: #A3B454;
+            --text-main: #332C23;
+            --text-sub: #635848;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0eeec; /* Màu nền xám nhạt bao phủ toàn trang */
+            color: #332C23;
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: var(--soft-butter);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 50px;
+            border-bottom: 3px solid var(--peach-glow);
+            box-shadow: 0 4px 20px rgba(255, 179, 102, 0.15);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-right-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            padding: 8px 18px;
+            border-radius: 20px;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--text-main);
+            background-color: var(--sunshine-yellow);
+            box-shadow: 0 2px 8px rgba(255, 213, 79, 0.4);
+        }
+
+        .custom-logo-area {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px dashed var(--peach-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        .custom-logo-area img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 75px);
+            padding: 20px;
+        }
+
+        .container {
+            position: relative;
+            width: 1100px;
+            height: 620px;
+            background-color: #f0eeec;
+        }
+
+        .box-30 {
+            position: absolute;
+            top: 35px;
+            left: 35px;
+            width: 115px;
+            height: 115px;
+            background-color: #3b5266;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .box-dream {
+            position: absolute;
+            top: 35px;
+            left: 175px;
+            width: 395px;
+            height: 115px;
+            background-color: #3b5266;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+        }
+
+        .title-name {
+            position: absolute;
+            top: 25px;
+            right: 30px;
+            font-size: 42px;
+            font-weight: 900;
+            color: #3b5266;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .box-info {
+            position: absolute;
+            top: 180px;
+            left: 35px;
+            width: 330px;
+            height: 225px;
+            background-color: #3b5266;
+            border-radius: 25px;
+            padding: 25px 20px;
+            color: #ffffff;
+        }
+
+        .box-info .info-title {
+            text-align: center;
+            font-size: 17px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .box-info .info-content {
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .box-hobby {
+            position: absolute;
+            top: 180px;
+            left: 385px;
+            width: 185px;
+            height: 225px;
+            background-color: #3b5266;
+            border-top-left-radius: 95px;
+            border-top-right-radius: 95px;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+            padding: 25px 15px;
+            color: #ffffff;
+        }
+
+        .box-hobby h3 {
+            text-align: center;
+            font-size: 17px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .box-hobby ul {
+            list-style-type: disc;
+            padding-left: 25px;
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        .box-quote {
+            position: absolute;
+            top: 430px;
+            left: 35px;
+            width: 535px;
+            height: 155px;
+            background-color: #3b5266;
+            border-radius: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .box-quote span {
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 1.5;
+            color: #ffffff;
+        }
+
+        .box-image {
+            position: absolute;
+            top: 180px;
+            right: 35px;
+            width: 380px;
+            height: 405px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid #3b5266;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Cozy House 🏡</div>
+        <div class="nav-right-container">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="baitap.html">Bài Tập Nhóm</a></li>
+            </ul>
+            <div class="custom-logo-area" title="Logo nhóm">
+                <img src="logo.png" alt="Logo">
+            </div>
+        </div>
+    </nav>
+
+    <!-- NỘI DUNG PROFILE THÁI TUẤN -->
+    <div class="wrapper">
+        <div class="container">
+
+            <div class="box-30">30</div>
+
+            <div class="box-dream">GIẤC MƠ: BÍ MẬT</div>
+
+            <div class="title-name">NGUYỄN THÁI TUẤN</div>
+
+            <div class="box-info">
+                <div class="info-title">Thông tin cá nhân:</div>
+                <div class="info-content">
+                    Ngày sinh: 19/1/2009<br>
+                    Cao 1m 72<br>
+                    Đặc điểm: mũi cao, cằm chẻ, má lúm đồng tiền
+                </div>
+            </div>
+
+            <!-- Sở Thích -->
+            <div class="box-hobby">
+                <h3>Sở Thích :</h3>
+                <ul>
+                    <li>Ăn uống</li>
+                    <li>Tập Gym</li>
+                    <li>Ngủ</li>
+                </ul>
+            </div>
+
+            <div class="box-quote">
+                <span>Mệt mỏi vì học giỏi,<br>nhưng đồng lòng hướng về thành công</span>
+            </div>
+
+            <div class="box-image">
+                <img src="tt.png" alt="Ảnh cá nhân Nguyễn Thái Tuấn">
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

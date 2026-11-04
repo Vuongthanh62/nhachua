@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ Ngọc Bảo Quyên - Cozy House</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            /* Vibe sang trọng, ấm cúng với nền màu kem nhạt kết hợp hiệu ứng tối giản */
+            background-color: #f7f4ed; 
+            color: #2c3539;
+        }
+
+        /* Thanh Menu Navigation */
+        nav {
+            background-color: #81a9ee;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            border-bottom: 3px solid #ffdb83;
+            box-shadow: 0 4px 15px rgba(62, 102, 143, 0.2);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #2c3539;
+            background-color: #ffdb83;
+        }
+
+        /* Container chính */
+        .profile-container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            text-decoration: none;
+            color: #3e668f;
+            font-weight: 600;
+            margin-bottom: 25px;
+            transition: opacity 0.3s;
+        }
+
+        .back-btn:hover {
+            opacity: 0.7;
+        }
+
+        /* Khung Profile mang phong cách Basic & Sang */
+        .profile-card {
+            background: #ffffff;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid #e3dec9;
+            box-shadow: 0 15px 35px rgba(44, 53, 57, 0.06);
+        }
+
+        /* Phần Banner phía trên (Chứa ảnh nền phong cảnh thơ mộng, sách và cây) */
+        .profile-header-bg {
+            height: 260px;
+            background: linear-gradient(rgba(44, 53, 57, 0.35), rgba(44, 53, 57, 0.55)),
+                        url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCt1uCTxvW8mXKGUl4l4b-le7WgjaPn-60SFHerpYihvvfC6GJkkrawCe5Yz8CrRSJck5I7bCl_NjcQN1f69yjxJEx1mvUP9psTDqIvB46aCK85rteqn8pOnXBKNsCxWDyC68bh-pBomU3/s1600/hinh-nen-phong-canh-dep+%252813%2529.jpg') center/cover no-repeat;
+            position: relative;
+        }
+
+        /* Avatar cá nhân đặt chèn lên banner */
+        .profile-avatar-container {
+            text-align: center;
+            margin-top: -75px;
+            position: relative;
+        }
+
+        .profile-avatar-container img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #ffffff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Phần Nội dung thông tin */
+        .profile-content {
+            padding: 20px 50px 50px 50px;
+            text-align: center;
+        }
+
+        .profile-content h1 {
+            font-size: 2.2rem;
+            color: #2c3539;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .profile-tagline {
+            font-size: 1rem;
+            color: #6b7c85;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        /* Bảng thông tin chi tiết */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            text-align: left;
+            background-color: #faf8f5;
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid #eee8d5;
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            margin-bottom: 10px;
+        }
+
+        .info-item label {
+            display: block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #8c989e;
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+
+        .info-item span {
+            font-size: 1.1rem;
+            color: #2c3539;
+            font-weight: 600;
+        }
+
+        /* Đoạn giới thiệu phong cách Vibe Sách & Cây */
+        .quote-box {
+            border-left: 4px solid #81a9ee;
+            background: #f4f7fc;
+            padding: 20px;
+            border-radius: 0 12px 12px 0;
+            text-align: left;
+            font-size: 1.05rem;
+            color: #4a5b6c;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: #81a9ee;
+            color: #ffffff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-top: 3px solid #ffdb83;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            .profile-content {
+                padding: 20px 20px 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Thanh Menu Navigation -->
+    <nav>
+        <div class="logo">Cozy House 🏡</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="baitap.html">Bài Tập Nhóm</a></li>
+        </ul>
+    </nav>
+
+    <main class="profile-container">
+        <a href="about.html" class="back-btn">&larr; Quay lại danh sách thành viên</a>
+
+        <div class="profile-card">
+            <!-- Banner ảnh nền phong cảnh -->
+            <div class="profile-header-bg"></div>
+
+            <!-- Ảnh đại diện -->
+            <div class="profile-avatar-container">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCt1uCTxvW8mXKGUl4l4b-le7WgjaPn-60SFHerpYihvvfC6GJkkrawCe5Yz8CrRSJck5I7bCl_NjcQN1f69yjxJEx1mvUP9psTDqIvB46aCK85rteqn8pOnXBKNsCxWDyC68bh-pBomU3/s1600/hinh-nen-phong-canh-dep+%252813%2529.jpg" alt="Hồ Ngọc Bảo Quyên" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop'">
+            </div>
+
+            <div class="profile-content">
+                <h1>Hồ Ngọc Bảo Quyên</h1>
+                <p class="profile-tagline">"Tâm bình thế giới bình, tâm an vạn sự an."</p>
+
+                <!-- Thông tin chi tiết -->
+                <div class="info-grid">
+                    <div class="info-item">
+                        <label>Họ và Tên</label>
+                        <span>Hồ Ngọc Bảo Quyên</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Ngày sinh</label>
+                        <span>06/02/2009</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Lớp</label>
+                        <span>12 Toán Tin</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Vai trò</label>
+                        <span>Coder</span>
+                    </div>
+                </div>
+
+                <div class="info-item" style="margin-bottom: 25px; text-align: left;">
+                    <label style="margin-bottom: 8px;">Sở thích cá nhân</label>
+                    <span style="font-size: 1.05rem; background: #faf8f5; padding: 10px 15px; display: block; border-radius: 8px; border: 1px solid #eee8d5;">
+                        📚 Đọc tiểu thuyết trinh thám, kinh dị & xem phim
+                    </span>
+                </div>
+
+                <!-- Giới thiệu phong cách Vibe Sách & Cây -->
+                <div class="quote-box">
+                    🌿 Chào mừng bạn ghé thăm góc nhỏ của tớ trong ngôi nhà chung Cozy House. 
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Nhóm Cozy House. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

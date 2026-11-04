@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>An Thư profile page - Cozy House</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sunshine-yellow: #FFD54F;
+            --soft-butter: #FFE8A1;
+            --warm-cream: #FFF7E1;
+            --peach-glow: #FFB366;
+            --sunlit-green: #A3B454;
+            --text-main: #332C23;
+            --text-sub: #635848;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--warm-cream);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: var(--soft-butter);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 50px;
+            border-bottom: 3px solid var(--peach-glow);
+            box-shadow: 0 4px 20px rgba(255, 179, 102, 0.15);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-right-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            padding: 8px 18px;
+            border-radius: 20px;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--text-main);
+            background-color: var(--sunshine-yellow);
+            box-shadow: 0 2px 8px rgba(255, 213, 79, 0.4);
+        }
+
+        .custom-logo-area {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px dashed var(--peach-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        .custom-logo-area img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-section {
+            padding: 50px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .profile-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 24px;
+            border: 2px solid #ED8990;
+            box-shadow: 0 8px 25px rgba(255, 179, 102, 0.12);
+        }
+
+        .profile-image {
+            flex: 0 1 300px;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 4px solid var(--peach-glow);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-content {
+            flex: 1 1 450px;
+        }
+
+        .profile-tag {
+            display: inline-block;
+            background-color: var(--soft-butter);
+            color: var(--text-main);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            border: 1px solid var(--peach-glow);
+        }
+
+        .profile-content h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #204a24;
+            margin-bottom: 8px;
+        }
+
+        .profile-content h1 span {
+            color: var(--peach-glow);
+        }
+
+        .profile-subtitle {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-sub);
+            margin-bottom: 16px;
+        }
+
+        .profile-description {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 24px;
+            white-space: pre-line;
+        }
+
+        .profile-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .profile-info-item {
+            background-color: var(--warm-cream);
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid var(--soft-butter);
+            font-size: 0.95rem;
+        }
+
+        .profile-info-item strong {
+            display: block;
+            color: var(--text-main);
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .profile-heading {
+            text-align: center;
+            margin: 40px 0 30px;
+        }
+
+        .profile-heading small {
+            letter-spacing: 2px;
+            font-weight: 800;
+            color: var(--peach-glow);
+            text-transform: uppercase;
+        }
+
+        .profile-heading h2 {
+            font-size: 2rem;
+            color: #204a24;
+            font-weight: 800;
+            margin: 6px 0;
+        }
+
+        .profile-heading p {
+            color: var(--text-sub);
+            font-weight: 600;
+        }
+
+        /* Grid Sở thích & Dự án */
+        .profile-interests {
+            padding: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .profile-interest-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+        }
+
+        .profile-interest-card {
+            background-color: #ffffff;
+            border: 2px solid #ED8990;
+            padding: 24px;
+            border-radius: 18px;
+            box-shadow: 0 6px 15px rgba(255, 179, 102, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-interest-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--peach-glow);
+        }
+
+        .profile-interest-card .emoji {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .profile-interest-card h3 {
+            font-size: 1.2rem;
+            color: #204a24;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .profile-interest-card p {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .profile-quote {
+            padding: 30px 20px 60px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .profile-quote-box {
+            background: linear-gradient(135deg, #ffffff, var(--soft-butter));
+            border: 2px dashed var(--peach-glow);
+            padding: 35px 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+
+        .profile-quote-box blockquote {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #204a24;
+            font-style: italic;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .profile-quote-box p {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: var(--peach-glow);
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Cozy House 🏡</div>
+        <div class="nav-right-container">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="baitap.html">Bài Tập Nhóm</a></li>
+            </ul>
+            <div class="custom-logo-area" title="Logo nhóm">
+                <img src="logo.png" alt="Logo">
+            </div>
+        </div>
+    </nav>
+
+    <section class="profile-section" id="profile">
+        <div class="profile-container">
+
+            <div class="profile-image">
+                <img src="at.png" alt="Ảnh đại diện An Thư">
+            </div>
+
+            <div class="profile-content">
+                <span class="profile-tag">
+                    🌼 XIN CHÀO, RẤT VUI ĐƯỢC GẶP BẠN!
+                </span>
+
+                <h1>
+                    Mình là <span>An Thư!</span>
+                </h1>
+
+                <div class="profile-subtitle">
+                    Một tâm hồn sáng tạo, tò mò và thích khám phá.
+                </div>
+
+                <p class="profile-description">
+                    Mình là An Thư, học sinh lớp 12 tại THPT Chuyên Bến Tre.
+
+                    Mình yêu thích văn học, thiết kế, ngoại ngữ và các hoạt động ngoại khóa. Với mình, mỗi trải nghiệm đều là một cơ hội để học hỏi, trưởng thành và khám phá những giới hạn mới của bản thân.
+                </p>
+
+                <div class="profile-info">
+                    <div class="profile-info-item">
+                        <strong>🎓 Trường học</strong>
+                        THPT Chuyên Bến Tre
+                    </div>
+
+                    <div class="profile-info-item">
+                        <strong>📚 Lớp</strong>
+                        12
+                    </div>
+
+                    <div class="profile-info-item">
+                        <strong>🌱 Tính cách</strong>
+                        Sáng tạo, tò mò
+                    </div>
+
+                    <div class="profile-info-item">
+                        <strong>💛 Phương châm</strong>
+                        Không ngừng trưởng thành
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="profile-interests">
+        <div class="profile-heading">
+            <small>MY LITTLE WORLD</small>
+            <h2>Những điều mình yêu thích 🌷</h2>
+            <p>Mỗi sở thích là một mảnh ghép tạo nên con người mình.</p>
+        </div>
+
+        <div class="profile-interest-grid">
+            <div class="profile-interest-card">
+                <div class="emoji">📖</div>
+                <h3>Văn học</h3>
+                <p>Yêu những trang viết và khám phá chiều sâu tâm hồn con người.</p>
+            </div>
+
+            <div class="profile-interest-card">
+                <div class="emoji">🎨</div>
+                <h3>Thiết kế</h3>
+                <p>Biến những ý tưởng sáng tạo thành hình ảnh và sản phẩm.</p>
+            </div>
+
+            <div class="profile-interest-card">
+                <div class="emoji">🌍</div>
+                <h3>Ngoại ngữ</h3>
+                <p>Khám phá những nền văn hóa qua ngôn ngữ.</p>
+            </div>
+
+            <div class="profile-interest-card">
+                <div class="emoji">🎤</div>
+                <h3>Thuyết trình</h3>
+                <p>Chia sẻ ý tưởng và truyền tải những thông điệp ý nghĩa.</p>
+            </div>
+
+            <div class="profile-interest-card">
+                <div class="emoji">🤝</div>
+                <h3>Hoạt động ngoại khóa</h3>
+                <p>Học hỏi, kết nối và trưởng thành qua những trải nghiệm tập thể.</p>
+            </div>
+
+            <div class="profile-interest-card">
+                <div class="emoji">💡</div>
+                <h3>Sáng tạo ý tưởng</h3>
+                <p>Luôn tìm kiếm những góc nhìn mới mẻ và thú vị.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="profile-section">
+        <div style="width:100%; max-width:1000px; margin:auto;">
+            <div class="profile-heading">
+                <small>MY EXPERIENCES</small>
+                <h2>Hành trình và dấu ấn 🌱</h2>
+                <p>Những trải nghiệm góp phần tạo nên mình hôm nay.</p>
+            </div>
+
+            <div class="profile-interest-grid">
+                <div class="profile-interest-card">
+                    <div class="emoji">🌿</div>
+                    <h3>EcoCraft</h3>
+                    <p>Dự án tái sinh phế phẩm nông nghiệp thành sản phẩm thủ công bền vững.</p>
+                </div>
+
+                <div class="profile-interest-card">
+                    <div class="emoji">📚</div>
+                    <h3>Nghiên cứu văn học</h3>
+                    <p>Tìm hiểu và phân tích thơ Tagore, khám phá chiều sâu của tình yêu và con người.</p>
+                </div>
+
+                <div class="profile-interest-card">
+                    <div class="emoji">🌏</div>
+                    <h3>Multicultural World</h3>
+                    <p>Khám phá văn hóa, ẩm thực và bản sắc của các quốc gia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="profile-quote">
+        <div class="profile-heading">
+            <small>MY PERSONAL PHILOSOPHY</small>
+            <h2>Một câu nói mình luôn trân trọng 💛</h2>
+        </div>
+
+        <div class="profile-quote-box">
+            <blockquote>
+                “Cuộc sống mưu sinh là một trận chiến, nhưng người chiến thắng không phải là người mạnh nhất, mà là người kiên trì nhất.”
+            </blockquote>
+            <p>KIÊN TRÌ LÀ SỨC MẠNH.</p>
+        </div>
+    </section>
+
+</body>
+</html>

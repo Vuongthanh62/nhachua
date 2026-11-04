@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phuong Thao profile page - Cozy House</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sofia&family=Quicksand:wght@500;600&display=swap">
+<style>
+    :root {
+        --sunshine-yellow: #FFD54F;
+        --soft-butter: #FFE8A1;
+        --warm-cream: #FFF7E1;
+        --peach-glow: #FFB366;
+        --sunlit-green: #A3B454;
+        --text-main: #332C23;
+        --text-sub: #635848;
+        
+        --bg: #FFF3D0;         
+        --stamp: #F2E2B5;      
+        --green-dark: #4B6B2E;
+        --cream-text: #FFF8E1;
+        --orange: #A35C0D;
+        --green: #55703F;
+        --teal: #163b3d;
+        --mustard: #D9C85A;
+        --rose: #A8524A;
+        --script: 'Sofia', 'Brush Script MT', cursive;
+        --body: 'Quicksand', system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+        margin: 0;
+        background-color: var(--warm-cream);
+        color: var(--green-dark);
+        font-family: var(--body);
+        line-height: 1.6;
+    }
+
+    nav {
+        background-color: var(--soft-butter);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 50px;
+        border-bottom: 3px solid var(--peach-glow);
+        box-shadow: 0 4px 20px rgba(255, 179, 102, 0.15);
+    }
+   
+    .logo {
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--text-main);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .nav-right-container {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 15px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links a {
+        color: var(--text-main);
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 700;
+        transition: all 0.3s ease;
+        padding: 8px 18px;
+        border-radius: 20px;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+        color: var(--text-main);
+        background-color: var(--sunshine-yellow);
+        box-shadow: 0 2px 8px rgba(255, 213, 79, 0.4);
+    }
+
+    .custom-logo-area {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        border: 2px dashed var(--peach-glow);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #ffffff;
+        overflow: hidden;
+    }
+
+    .custom-logo-area img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .page {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 56px 32px 88px;
+    }
+
+    .hero {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 64px;
+    }
+    .hero-text { flex: 1 1 460px; }
+
+    .hero h1 {
+        margin: 0;
+        font-family: var(--script);
+        font-weight: 400;
+        font-size: clamp(52px, 9vw, 88px);
+        line-height: 1.05;
+    }
+    .hero .line {
+        margin: 14px 0 0;
+        padding: 12px 0;
+        border-top: 2px dashed #B5A93A;
+        border-bottom: 2px dashed #B5A93A;
+        letter-spacing: 0.08em;
+        line-height: 1.6;
+    }
+    .hero .name { margin-top: 28px; font-size: clamp(22px, 4vw, 34px); font-weight: 600; letter-spacing: 0.12em; }
+    .hero .born { font-size: clamp(17px, 2.6vw, 24px); font-weight: 500; }
+
+    .photo {
+        flex: 0 1 400px;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        background: #EADFB4;
+        border: 3px dashed #7E9345;
+        border-radius: 48px 64px 40px 60px;
+    }
+
+    .photo img, .gallery-item img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 24px;
+        text-align: center;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+    }
+    .placeholder svg { width: 52px; height: 52px; }
+
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 36px;
+        align-items: stretch;
+    }
+    .stamp {
+        flex: 1 1 400px;
+        padding: 16px;
+        background: var(--stamp);
+        border: 7px dotted var(--bg);   
+    }
+    .stamp.wide { flex: 1.4 1 520px; }
+    .stamp > .inner {
+        height: 100%;
+        padding: 36px 40px;
+        color: var(--cream-text);
+        text-align: center;
+    }
+    .stamp h2 {
+        margin: 0 0 18px;
+        font-family: var(--script);
+        font-weight: 400;
+        font-size: clamp(42px, 6vw, 60px);
+        line-height: 1.1;
+    }
+    .stamp p, .stamp li {
+        font-size: 20px;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        line-height: 2;
+    }
+    .stamp p { margin: 0; }
+    .stamp ul { margin: 0; padding-left: 26px; text-align: left; line-height: 2.1; }
+    .stamp .dory { margin-top: 12px; font-weight: 600; letter-spacing: 0.08em; }
+
+    .hobbies .inner { background: var(--green); text-align: left; }
+    .about   .inner { background: var(--orange); }
+    .facts   .inner { background: var(--mustard); color: #4A3205; text-align: left; }
+    .facts li { font-weight: 600; }
+    .facts h2 { color: #8A4208; }
+    .motto   .inner { background: var(--teal); }
+    .dream   .inner { background: var(--rose); }
+
+    .gallery {
+        flex: 1.4 1 520px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 36px;
+    }
+    .gallery-item {
+        flex: 1 1 220px;
+        min-height: 260px;
+        padding: 16px;
+        background: var(--stamp);
+        border: 7px dotted var(--bg);
+    }
+    .gallery-item > div { height: 100%; min-height: 216px; overflow: hidden; }
+    .g1 > div { background: #C9D58A; color: #3B4F22; }
+    .g2 > div { background: #E9B58A; color: #5A2E0B; }
+
+    @media (max-width: 560px) {
+        .page { padding: 32px 18px 56px; }
+        .stamp > .inner { padding: 28px 24px; }
+        .stamp p, .stamp li { font-size: 18px; }
+    }
+</style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Cozy House 🏡</div>
+        <div class="nav-right-container">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="baitap.html">Bài Tập Nhóm</a></li>
+            </ul>
+            <div class="custom-logo-area" title="Logo nhóm">
+                <img src="logo.png" alt="Logo">
+            </div>
+        </div>
+    </nav>
+
+<div class="page">
+
+  <header class="hero">
+    <div class="hero-text">
+      <h1>Hello Everyone!</h1>
+      <p class="line name">My name is Phuong Thao</p>
+      <p class="line born">I was born on 15 August 2009, and I am 17 years old.</p>
+    </div>
+
+      <div class="photo">
+        <img src="pt.png" alt="nothing to show" />
+    </div>
+  </header>
+
+  <main class="cards">
+
+    <section class="stamp hobbies">
+      <div class="inner">
+        <h2>My Hobbies</h2>
+        <ul>
+          <li>Cattt</li>
+          <li>Listening to Music</li>
+          <li>Traveling</li>
+          <li>Photography</li>
+          <li>Learning</li>
+          <li>Watching Movies</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="stamp wide about">
+      <div class="inner">
+        <h2>About Me</h2>
+        <p>I am a friendly, curious, and hardworking person. I enjoy learning new things, meeting new people, and challenging myself to grow every day. I always try to stay positive and make the most of every opportunity.</p>
+      </div>
+    </section>
+
+    <section class="stamp wide facts">
+      <div class="inner">
+        <h2>Fun Facts</h2>
+        <ul>
+          <li>My favorite color is Orange.</li>
+          <li>My favorite food is Sushi.</li>
+          <li>I love spending time with my family and friends.</li>
+          <li>I have a passion for buying makeup and clothes.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="stamp motto">
+      <div class="inner">
+        <h2>My Motto</h2>
+        <p>“When life gets down, you know what you gotta do? Just keep swimming.”</p>
+        <p class="dory">— Dory —</p>
+      </div>
+    </section>
+
+    <section class="stamp dream">
+      <div class="inner">
+        <h2>My Dream</h2>
+        <p>I want to live a life of luxury and ease without having to work, because work drains me of all my energy.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>
