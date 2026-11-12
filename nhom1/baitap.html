@@ -592,9 +592,7 @@
         let activeFolderName = "";
         let confirmCallback = null;
 
-        // Khởi động lắng nghe dữ liệu thời gian thực từ Firestore
         window.initFirebaseApp = function() {
-            // Lắng nghe thư mục
             window.onSnapshot(window.collection(window.db, "folders"), (snapshot) => {
                 folders = [];
                 snapshot.forEach((doc) => {
@@ -603,7 +601,6 @@
                 renderFolders();
             });
 
-            // Lắng nghe bài tập
             window.onSnapshot(window.collection(window.db, "tasks"), (snapshot) => {
                 tasks = [];
                 snapshot.forEach((doc) => {
@@ -772,7 +769,7 @@
             const btn = document.getElementById(`btn-readmore-${taskId}`);
             if (el.classList.contains('expanded')) {
                 el.classList.remove('expanded');
-                btn.innerText = '... Xem thêm';
+                btn.innerText = 'Xem thêm';
             } else {
                 el.classList.add('expanded');
                 btn.innerText = 'Rút gọn';
